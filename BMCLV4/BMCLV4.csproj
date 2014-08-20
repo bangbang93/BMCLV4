@@ -34,8 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,7 +59,83 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Report.cs" />
+    <Compile Include="UpdateChecker.cs" />
+    <Compile Include="Util\FileHelper.cs" />
+    <Compile Include="Util\MathHelper.cs" />
+    <Compile Include="Util\MD5.cs" />
+    <Compile Include="Windows\CrashWindow.xaml.cs">
+      <DependentUpon>CrashWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LogWindow.xaml.cs">
+      <DependentUpon>LogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NotiIcon.cs" />
+    <Compile Include="Zip\Checksums\Adler32.cs" />
+    <Compile Include="Zip\Checksums\CRC32.cs" />
+    <Compile Include="Zip\Checksums\IChecksum.cs" />
+    <Compile Include="Zip\Checksums\StrangeCRC.cs" />
+    <Compile Include="Zip\Compression\Deflater.cs" />
+    <Compile Include="Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="Zip\Compression\Inflater.cs" />
+    <Compile Include="Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="Zip\Core\FileSystemScanner.cs" />
+    <Compile Include="Zip\Core\INameTransform.cs" />
+    <Compile Include="Zip\Core\IScanFilter.cs" />
+    <Compile Include="Zip\Core\NameFilter.cs" />
+    <Compile Include="Zip\Core\PathFilter.cs" />
+    <Compile Include="Zip\Core\StreamUtils.cs" />
+    <Compile Include="Zip\Core\WindowsPathUtils.cs" />
+    <Compile Include="Zip\Encryption\PkzipClassic.cs" />
+    <Compile Include="Zip\Encryption\ZipAESStream.cs" />
+    <Compile Include="Zip\Encryption\ZipAESTransform.cs" />
+    <Compile Include="Zip\FastZip.cs" />
+    <Compile Include="Zip\IEntryFactory.cs" />
+    <Compile Include="Zip\SharpZipBaseException.cs" />
+    <Compile Include="Zip\WindowsNameTransform.cs" />
+    <Compile Include="Zip\ZipConstants.cs" />
+    <Compile Include="Zip\ZipEntry.cs" />
+    <Compile Include="Zip\ZipEntryFactory.cs" />
+    <Compile Include="Zip\ZipException.cs" />
+    <Compile Include="Zip\ZipExtraData.cs" />
+    <Compile Include="Zip\ZipFile.cs" />
+    <Compile Include="Zip\ZipHelperStream.cs" />
+    <Compile Include="Zip\ZipInputStream.cs" />
+    <Compile Include="Zip\ZipNameTransform.cs" />
+    <Compile Include="Zip\ZipOutputStream.cs" />
+    <Page Include="Language\zh-cn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Language\zh-tw.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CrashWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\UpdateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\LogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -61,7 +143,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="BmclCore.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Language\LangManager.cs" />
+    <Compile Include="Language\LangType.cs" />
+    <Compile Include="Launcher\GameInfo.cs" />
+    <Compile Include="Launcher\Launcher.cs" />
+    <Compile Include="Launcher\NoJavaException.cs" />
+    <Compile Include="Launcher\UnSupportVersionException.cs" />
+    <Compile Include="Libraries\Extract.cs" />
+    <Compile Include="Libraries\Libraryies.cs" />
+    <Compile Include="Libraries\OS.cs" />
+    <Compile Include="Libraries\ros.cs" />
+    <Compile Include="Libraries\rules.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Login\LoginInfo.cs" />
+    <Compile Include="Login\LoginThread.cs" />
+    <Compile Include="Resources\ServerDat.Designer.cs" />
+    <Compile Include="Resources\Url.Designer.cs" />
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -84,11 +184,43 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ServerDat.resx" />
+    <EmbeddedResource Include="Resources\Url.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\BMCL V4.psd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Download_From_Internet.png" />
+    <Resource Include="Resources\Saved_Remove.png" />
+    <Resource Include="Resources\Server_add.png" />
+    <Resource Include="Resources\Server_Delete.png" />
+    <Resource Include="Resources\Server_Edit.png" />
+    <Resource Include="Resources\Server_Synchronize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="screenLaunch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tofu.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Add.png" />
+    <Resource Include="Resources\Delete.png" />
+    <Resource Include="Resources\Edit.png" />
+    <Resource Include="Resources\Globe.png" />
+    <Resource Include="Resources\Next.png" />
+    <Resource Include="Resources\Open.png" />
+    <Resource Include="Resources\Remove.png" />
+    <Resource Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Settings.png" />
+    <Resource Include="Resources\Stock Index Down.png" />
+    <Resource Include="Resources\Synchronize.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
