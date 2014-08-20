@@ -6,14 +6,14 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
+using BMCLV4.DownloadSource;
 using BMCLV4.Language;
 using BMCLV4.Launcher;
-using BMCLV4.Resource;
 using BMCLV4.Windows;
 
 namespace BMCLV4
 {
-    class BmclCore
+    public static class BmclCore
     {
         public static String BmclVersion;
         private const string Cfgfile = "bmcl.xml";
@@ -21,9 +21,9 @@ namespace BMCLV4
         public static Dictionary<string, object> Auths = new Dictionary<string, object>();
         public static Launcher.Launcher Game;
         public static bool GameRunning = false;
-        public static String UrlDownloadBase = Url.URL_DOWNLOAD_bangbang93;
-        public static String UrlResourceBase = Url.URL_RESOURCE_bangbang93;
-        public static string UrlLibrariesBase = Url.URL_LIBRARIES_bangbang93;
+        public static String UrlDownloadBase = DownloadSourceManage.GetUrlFromResource("UrlDownloadBase");
+        public static String UrlResourceBase = DownloadSourceManage.GetUrlFromResource("UrlResourceBase");
+        public static string UrlLibrariesBase = DownloadSourceManage.GetUrlFromResource("UrlLibrariesBase");
         public static NotiIcon NIcon = new NotiIcon();
         public static MainWindow MainWindow = null;
         public static Dispatcher Dispatcher = Dispatcher.CurrentDispatcher;
@@ -35,7 +35,7 @@ namespace BMCLV4
         {
             BmclVersion = Application.ResourceAssembly.FullName.Split('=')[1];
             BmclVersion = BmclVersion.Substring(0, BmclVersion.IndexOf(','));
-            Logger.Log("BMCL V3 Ver." + BmclVersion + "正在启动");
+            Logger.Log("BMCL V4 Ver." + BmclVersion + "正在启动");
             if (File.Exists(Cfgfile))
             {
                 Config = Config.Load(Cfgfile);
@@ -273,16 +273,16 @@ namespace BMCLV4
 
         private static void LoadLanguage()
         {
-            ResourceDictionary lang = LangManager.LoadLangFromResource("pack://application:,,,/Lang/zh-cn.xaml");
+            ResourceDictionary lang = LangManager.LoadLangFromResource("pack://application:,,,/Language/zh-cn.xaml");
             BmclCore.Language.Add((string)lang["DisplayName"], lang["LangName"]);
-            LangManager.Add(lang["LangName"] as string, "pack://application:,,,/Lang/zh-cn.xaml");
+            LangManager.Add(lang["LangName"] as string, "pack://application:,,,/Language/zh-cn.xaml");
 
-            lang = LangManager.LoadLangFromResource("pack://application:,,,/Lang/zh-tw.xaml");
+            lang = LangManager.LoadLangFromResource("pack://application:,,,/Language/zh-tw.xaml");
             BmclCore.Language.Add((string)lang["DisplayName"], lang["LangName"]);
-            LangManager.Add(lang["LangName"] as string, "pack://application:,,,/Lang/zh-tw.xaml");
-            if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\Lang"))
+            LangManager.Add(lang["LangName"] as string, "pack://application:,,,/Language/zh-tw.xaml");
+            if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\Language"))
             {
-                foreach (string langFile in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "\\Lang", "*.xaml", SearchOption.TopDirectoryOnly))
+                foreach (string langFile in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "\\Language", "*.xaml", SearchOption.TopDirectoryOnly))
                 {
                     lang = LangManager.LoadLangFromResource(langFile);
                     BmclCore.Language.Add((string)lang["DisplayName"], lang["LangName"]);
@@ -291,7 +291,7 @@ namespace BMCLV4
             }
             else
             {
-                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\Lang");
+                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\Language");
             }
         }
         

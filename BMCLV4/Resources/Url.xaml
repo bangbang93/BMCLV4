@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <s:String x:Key="UrlDownloadBangbang93">http://bmclapi.bangbang93.com/</s:String>
+    <s:String x:Key="UrlDownloadBase">https://s3.amazonaws.com/Minecraft.Download/</s:String>
+    <s:String x:Key="UrlLibrariesBangbang93">http://bmclapi.bangbang93.com/libraries/</s:String>
+    <s:String x:Key="UrlLibrariesBase">https://libraries.minecraft.net/</s:String>
+    <s:String x:Key="UrlResourceBangbang93">http://bmclapi.bangbang93.com/assets/</s:String>
+    <s:String x:Key="UrlResourceBase">http://resources.download.minecraft.net/</s:String>
+
+</ResourceDictionary>

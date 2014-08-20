@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
-namespace BMCLV2.libraries
+namespace BMCLV4.Libraries
 {
     [DataContract]
-    public class extract
+    public class Extract
     {
         [DataMember(Order = 0, IsRequired = false)]
+// ReSharper disable once InconsistentNaming
         public string[] exclude;
     }
 }

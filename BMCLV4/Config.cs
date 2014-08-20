@@ -170,5 +170,26 @@ namespace BMCLV4
 
             }
         }
+
+        public static string GetSystemName()
+        {
+            try //系统版本
+            {
+                string system = null;
+                var searcher = new ManagementClass("Win32_OperatingSystem");
+                ManagementObjectCollection moc = searcher.GetInstances();
+                foreach (var o in moc)
+                {
+                    var mo = (ManagementObject) o;
+                    system = mo["Name"].ToString().Trim();
+                    system = system.Substring(0, system.IndexOf('|'));
+                }
+                return system;
+            }
+            catch
+            {
+                return "Unknow System";
+            }
+        }
     }
 }

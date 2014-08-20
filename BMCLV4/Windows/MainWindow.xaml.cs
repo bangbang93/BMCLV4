@@ -10,6 +10,8 @@ namespace BMCLV4.Windows
     {
         public MainWindow()
         {
+            BmclCore.MainWindow = this;
+            BmclCore.NIcon.MainWindow = this;
             InitializeComponent();
         }
 
@@ -19,6 +21,12 @@ namespace BMCLV4.Windows
             {
                 this.DragMove();
             }
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            SysinfoLabel.Content = string.Format("{0} With {1} GB RAM",Config.GetSystemName(), Config.GetMemory()/1024);
+            LabVersion.Content = BmclCore.BmclVersion;
         }
     }
 }

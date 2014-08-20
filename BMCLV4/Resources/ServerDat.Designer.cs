@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BMCLV2.Resource {
+namespace BMCLV4.Resource {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BMCLV2.Resource {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BMCLV2.Resource.ServerDat", typeof(ServerDat).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BMCLV4.Resource.ServerDat", typeof(ServerDat).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

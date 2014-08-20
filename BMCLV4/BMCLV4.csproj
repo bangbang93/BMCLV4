@@ -59,7 +59,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DownloadSource\DownloadSourceManage.cs" />
+    <Compile Include="DownloadSource\DownloadSourceType.cs" />
     <Compile Include="Report.cs" />
+    <Compile Include="Style\InfoViewStyle.xaml.cs">
+      <DependentUpon>InfoViewStyle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateChecker.cs" />
     <Compile Include="Util\FileHelper.cs" />
     <Compile Include="Util\MathHelper.cs" />
@@ -115,6 +120,14 @@
     <Compile Include="Zip\ZipInputStream.cs" />
     <Compile Include="Zip\ZipNameTransform.cs" />
     <Compile Include="Zip\ZipOutputStream.cs" />
+    <Page Include="DownloadSource\BmclApi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DownloadSource\Offical.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Language\zh-cn.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -122,6 +135,22 @@
     <Page Include="Language\zh-tw.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Url.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\HideColumeHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\InfoViewStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\InfoViewTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CrashWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -160,7 +189,6 @@
     <Compile Include="Login\LoginInfo.cs" />
     <Compile Include="Login\LoginThread.cs" />
     <Compile Include="Resources\ServerDat.Designer.cs" />
-    <Compile Include="Resources\Url.Designer.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -185,7 +213,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ServerDat.resx" />
-    <EmbeddedResource Include="Resources\Url.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -222,7 +249,22 @@
     <Resource Include="Resources\Stock Index Down.png" />
     <Resource Include="Resources\Synchronize.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Close.png" />
+    <Resource Include="Resources\Minisize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Settings_small.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>F:\Code\VS\IncBuildNo.exe "$(PROJECTDIR)\Properties\AssemblyInfo.cs" "\[assembly: AssemblyVersion\(\"\d+\.\d+\.\d+\.(\d+)" 1
+F:\Code\VS\IncBuildNo.exe "$(PROJECTDIR)\Properties\AssemblyInfo.cs" "\[assembly: AssemblyFileVersion\(\"\d+\.\d+\.\d+\.(\d+)" 1
+</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

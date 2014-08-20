@@ -1,5 +1,4 @@
 ﻿using System.Runtime.Serialization;
-using BMCLV2.libraries;
 
 namespace BMCLV4.Libraries
 {
@@ -12,7 +11,7 @@ namespace BMCLV4.Libraries
         [DataMember(Order = 1, IsRequired = false)]
         public OS natives;
         [DataMember(Order = 2, IsRequired = false)]
-        public extract extract;
+        public Extract extract;
         [DataMember(IsRequired = false)]
         public string url;
         [DataMember(Order = 4, IsRequired = false)]

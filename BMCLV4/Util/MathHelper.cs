@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace BMCLV2.util
+namespace BMCLV4.Util
 {
     class MathHelper
     {
-        public static int parseIntWithDefault(String par0Str, int par1)
+        public static int ParseIntWithDefault(String par0Str, int par1)
         {
             int j = par1;
 
@@ -15,9 +12,9 @@ namespace BMCLV2.util
             {
                 j = int.Parse(par0Str);
             }
-            catch 
+            catch
             {
-                
+                j = 0;
             }
 
             return j;

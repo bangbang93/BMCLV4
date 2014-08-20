@@ -226,7 +226,7 @@ namespace BMCLV4.Launcher
                         BMCLV4.Logger.Log("原地址下载失败，尝试作者源" + lib.name);
                         try
                         {
-                            _downer.DownloadFile(Url.URL_DOWNLOAD_bangbang93 + "libraries/" + libp.Remove(0, Environment.CurrentDirectory.Length + 22).Replace("/", "\\"), libp);
+                            _downer.DownloadFile(DownloadSource.DownloadSourceManage.GetUrlFromResource("UrlDownloadBase") + "libraries/" + libp.Remove(0, Environment.CurrentDirectory.Length + 22).Replace("/", "\\"), libp);
                         }
                         catch (WebException exception)
                         {
@@ -367,7 +367,7 @@ namespace BMCLV4.Launcher
                                 try
                                 {
                                     _downer.DownloadFile(
-                                        Url.URL_DOWNLOAD_bangbang93 + "libraries/" +
+                                        DownloadSource.DownloadSourceManage.GetUrlFromResource("UrlDownloadBase") + "libraries/" +
                                         nativep.Remove(0, Environment.CurrentDirectory.Length + 22).Replace("/", "\\"),
                                         nativep);
                                 }
@@ -407,7 +407,7 @@ namespace BMCLV4.Launcher
                                 BMCLV4.Logger.Log(ex);
                                 BMCLV4.Logger.Log("原地址下载失败，尝试作者源" + lib.name);
                                 string nativep = BuildLibPath(lib);
-                                _downer.DownloadFile(Resource.Url.URL_DOWNLOAD_bangbang93 + "libraries/" + nativep.Replace("/", "\\"), nativep);
+                                _downer.DownloadFile(DownloadSource.DownloadSourceManage.GetUrlFromResource("UrlDownloadBase") + "libraries/" + nativep.Replace("/", "\\"), nativep);
                             }
                         }
                     }

@@ -1,13 +1,50 @@
 ﻿<Window x:Class="BMCLV4.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BMCL" Height="501" Width="774" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible" WindowStyle="None" MouseDown="Window_MouseDown">
+        Title="BMCL" Height="501" Width="774" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible" WindowStyle="None" MouseDown="Window_MouseDown" Background="{x:Null}" AllowsTransparency="True">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Style/HideColumeHeader.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Border BorderBrush="black" CornerRadius="10,10,10,10" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,-42" Height="501" Width="774" x:Name="Container">
-        <Grid>
+        <Border.Background>
+            <ImageBrush ImageSource="/BMCLV4;component/Resources/Background.png"/>
+        </Border.Background>
+        <Grid Loaded="Grid_Loaded">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
             <Image HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="/BMCLV4;component/screenLaunch.png"/>
             <Label Content="BMCL" HorizontalAlignment="Left" Margin="115,-5,0,0" VerticalAlignment="Top" Width="210" FontSize="72" Height="88" Padding="0" />
             <Label x:Name="LabVersion" Content="Version" HorizontalAlignment="Left" Margin="325,45,0,0" VerticalAlignment="Top" FontSize="20" Width="158"/>
-            <Label Content="Window 7 Ultimate With 16.0GB RAM" HorizontalAlignment="Left" Height="29" Margin="115,81,0,0" VerticalAlignment="Top" Width="647" FontSize="20" Padding="0"/>
+            <Label x:Name="SysinfoLabel" Content="Window 7 Ultimate With 16.0GB RAM" HorizontalAlignment="Left" Height="29" Margin="115,81,0,0" VerticalAlignment="Top" Width="647" FontSize="20" Padding="0"/>
+            <Button HorizontalAlignment="Left" Height="16" Margin="721,10,0,0" VerticalAlignment="Top" Width="41" x:Name="CloseButton">
+                <Border BorderBrush="Black" CornerRadius="0,3,3,0" BorderThickness="1" Height="16" Width="41" Margin="-10"></Border>
+                <Button.Background>
+                    <ImageBrush ImageSource="/BMCLV4;component/Resources/Close.png"/>
+                </Button.Background>
+            </Button>
+            <Button HorizontalAlignment="Left" Height="16" Margin="698,10,0,0" VerticalAlignment="Top" Width="24">
+                <Border BorderBrush="Black" CornerRadius="3,0,0,3" BorderThickness="1" Height="16" Width="24" Margin="-10"></Border>
+                <Button.Background>
+                    <ImageBrush ImageSource="/BMCLV4;component/Resources/Minisize.png"/>
+                </Button.Background>
+            </Button>
+            <Button HorizontalAlignment="Left" Height="29" Margin="730,34,0,0" VerticalAlignment="Top" Width="29" BorderBrush="Black">
+                <Button.Background>
+                    <ImageBrush ImageSource="/BMCLV4;component/Resources/Settings_small.png"/>
+                </Button.Background>
+            </Button>
+            <ListView HorizontalAlignment="Left" Height="361" Margin="10,128,0,0" VerticalAlignment="Top" Width="203" Background="{x:Null}">
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{DynamicResource HideGridViewColumnHeaderStyle}">
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
         </Grid>
     </Border>
